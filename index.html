@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Celebrare</title>
+</head>
+<body>
+    <div id="navbar"></div>
+    <div id="main">
+        <h1>Celebrare</h1>
+        <div class="content" >
+            <H2>Add Image / Icon</H2>
+            <p>Upload Image</p>
+            <input type="file" id="input" accept="image/*" onchange="disp
+            (event)">
+            <img src="" alt="" id="show">
+            <!-- <label for="file">Choose from device</label> -->
+            <div id="Display">
+                <!-- <h1>55</h1> -->
+            </div>
+        </div>
+        
+        
+    </div>
+    <script>
+        const input=document.querySelector("#input");
+        var uploaded_image="";
+
+        input.addEventListener("change",function(){
+            const reader=new FileReader();
+            reader.addEventListener("load",() =>{
+                uploaded_image=reader.result;
+                document.querySelector("#Display").style.backgroundImage=`url(${uploaded_image})`;
+            });
+            reader.readAsDataURL(this.files[0]);
+        })
+    </script>
+    
+</body>
+</html>
